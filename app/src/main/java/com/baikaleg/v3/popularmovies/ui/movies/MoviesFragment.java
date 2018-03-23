@@ -113,7 +113,7 @@ public class MoviesFragment extends DaggerFragment implements
                 ((MoviesActivity) getActivity()).setActionBarTitle(getString(R.string.popular));
                 break;
         }
-        moviesPresenter.loadMovies();
+        moviesPresenter.loadMovies(true);
         return true;
     }
 
@@ -141,7 +141,7 @@ public class MoviesFragment extends DaggerFragment implements
     public void showMovieDetails(Movie movie) {
         //Shown in it's own Activity
         Intent intent = new Intent(getActivity(), DetailsActivity.class);
-        intent.putExtra(getString(R.string.movie_key), movie);
+        intent.putExtra(DetailsActivity.EXTRA_MOVIE, movie);
         getActivity().startActivity(intent);
     }
 
@@ -155,7 +155,7 @@ public class MoviesFragment extends DaggerFragment implements
 
     @Override
     public void onRefresh() {
-        moviesPresenter.loadMovies();
+        moviesPresenter.loadMovies(true);
     }
 
     @NonNull

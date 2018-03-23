@@ -2,6 +2,7 @@ package com.baikaleg.v3.popularmovies.ui.movies;
 
 import android.support.annotation.NonNull;
 
+import com.baikaleg.v3.popularmovies.data.MoviesFilterType;
 import com.baikaleg.v3.popularmovies.data.model.Movie;
 import com.baikaleg.v3.popularmovies.ui.BasePresenter;
 import com.baikaleg.v3.popularmovies.ui.BaseView;
@@ -32,12 +33,13 @@ public interface MoviesContract {
     }
 
     interface Presenter extends BasePresenter<View> {
-        void loadMovies();
+
+        void loadMovies(final boolean forceUpdate);
 
         void openMovieDetails(Movie movie);
 
-        void setMoviesType(@NonNull String type);
+        void setMoviesType(@NonNull MoviesFilterType type);
 
-        String getMoviesType();
+        MoviesFilterType getMoviesType();
     }
 } 

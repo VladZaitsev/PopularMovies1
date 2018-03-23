@@ -8,16 +8,8 @@ import io.reactivex.Observable;
 
 public interface DataSource {
 
-    interface OnRepositoryResponse {
+    Observable<List<Movie>> getMovies(MoviesFilterType type);
 
-        void successfulResponse();
+    void refreshMovies();
 
-        void failedResponse();
-    }
-
-    Observable<List<Movie>> getMovies();
-
-    void saveMovie(Movie movie);
-
-    void deleteAllMovies();
 }

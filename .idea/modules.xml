@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PopularMovies.iml" filepath="$PROJECT_DIR$/PopularMovies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ANDUdacityPopularMoviesStageOne.iml" filepath="$PROJECT_DIR$/.idea/ANDUdacityPopularMoviesStageOne.iml" />
+      <module fileurl="file://E:\DOC_VLAD\workshop\AStudio\github\udacity\ANDUdacityPopularMoviesStageOne\PopularMovies.iml" filepath="E:\DOC_VLAD\workshop\AStudio\github\udacity\ANDUdacityPopularMoviesStageOne\PopularMovies.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://E:\DOC_VLAD\workshop\AStudio\github\udacity\ANDUdacityPopularMoviesStageOne\app\app.iml" filepath="E:\DOC_VLAD\workshop\AStudio\github\udacity\ANDUdacityPopularMoviesStageOne\app\app.iml" />
     </modules>
   </component>
 </project>

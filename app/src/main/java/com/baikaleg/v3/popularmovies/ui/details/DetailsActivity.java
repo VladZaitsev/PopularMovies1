@@ -14,6 +14,10 @@ import javax.inject.Inject;
 import dagger.android.support.DaggerAppCompatActivity;
 
 public class DetailsActivity extends DaggerAppCompatActivity {
+    public static final String EXTRA_MOVIE = "MOVIE";
+
+    @Inject
+    Movie movie;
 
     @Inject
     DetailsPresenter presenter;
@@ -31,10 +35,8 @@ public class DetailsActivity extends DaggerAppCompatActivity {
             actionBar.setDisplayShowHomeEnabled(true);
         }
 
-        Intent intent = getIntent();
-        Movie movie = intent.getParcelableExtra(getString(R.string.movie_key));
-        if (movie != null)
-            presenter.setMovie(movie);
+        presenter.setMovie(movie);
+        getSupportActionBar().setTitle(movie.getOriginalTitle());
     }
 
     @Override

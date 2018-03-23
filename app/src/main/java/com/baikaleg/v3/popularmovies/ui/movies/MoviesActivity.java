@@ -36,7 +36,7 @@ public class MoviesActivity extends DaggerAppCompatActivity {
         }
 
         if (savedInstanceState != null && savedInstanceState.containsKey(getString(R.string.type_movies_key))) {
-            String currentType =  savedInstanceState.getString(getString(R.string.type_movies_key));
+            MoviesFilterType currentType = (MoviesFilterType) savedInstanceState.get(getString(R.string.type_movies_key));
             if (currentType != null) {
                 presenter.setMoviesType(currentType);
             }
@@ -48,6 +48,7 @@ public class MoviesActivity extends DaggerAppCompatActivity {
     public void setActionBarTitle(String title) {
         getSupportActionBar().setTitle(title);
     }
+
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putSerializable(getString(R.string.type_movies_key), presenter.getMoviesType());
@@ -55,9 +56,9 @@ public class MoviesActivity extends DaggerAppCompatActivity {
     }
 
     private void titleSetting() {
-        if(presenter.getMoviesType().equals(MoviesFilterType.POPULAR_MOVIES)){
+        if (presenter.getMoviesType() == MoviesFilterType.POPULAR_MOVIES) {
             setTitle(getString(R.string.popular));
-        }else if(presenter.getMoviesType().equals(MoviesFilterType.TOP_RATED_MOVIES)){
+        } else if (presenter.getMoviesType() == MoviesFilterType.TOP_RATED_MOVIES) {
             setTitle(getString(R.string.top_rated));
         }
     }

@@ -39,6 +39,7 @@ public class MoviesViewAdapter extends RecyclerView.Adapter<MoviesViewHolder> {
         ItemMoviesAdapterBinding binding = DataBindingUtil.inflate(inflater,
                 R.layout.item_movies_adapter, parent, false);
         binding.getRoot().setLayoutParams(new ViewGroup.LayoutParams(viewWidth, viewHeight));
+
         return new MoviesViewHolder(binding.getRoot());
     }
 
@@ -47,8 +48,8 @@ public class MoviesViewAdapter extends RecyclerView.Adapter<MoviesViewHolder> {
         Movie movie = movies.get(position);
         Picasso.with(context)
                 .load(context.getString(R.string.image_base_url) + movie.getPosterPath())
-                .resize(viewWidth, viewHeight)
-                .centerCrop()
+                .fit()
+                .placeholder(context.getResources().getDrawable(R.drawable.ic_image))
                 .into(holder.binding.movieItemImg);
         holder.binding.movieItemImg.setOnClickListener(view -> listener.onMovieClick(movie));
     }

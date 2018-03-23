@@ -20,79 +20,95 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <RelativeLayout
-                android:id="@+id/details_title_layout"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/details_img"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="@dimen/details_general_margin"
+                android:layout_marginStart="@dimen/details_general_margin"
+                android:layout_marginTop="@dimen/details_general_margin"
+                android:contentDescription="@string/cd_poster_of_movie"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/details_title_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_margin="@dimen/details_general_margin"
-                    android:text="@{movie.originalTitle}"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Display1"
-                    android:textColor="@android:color/white" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/details_data_layout"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/details_date_header_tv"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/details_title_layout">
+                android:layout_marginLeft="@dimen/details_general_margin"
+                android:layout_marginStart="@dimen/details_general_margin"
+                android:layout_marginTop="@dimen/details_top_margin"
+                android:text="@string/release_date"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                app:layout_constraintStart_toEndOf="@+id/details_img"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/details_img"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="@dimen/details_general_margin"
-                    android:layout_marginStart="@dimen/details_general_margin"
-                    android:layout_marginTop="@dimen/details_general_margin"
-                    android:contentDescription="@string/cd_poster_of_movie" />
+            <TextView
+                android:id="@+id/details_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/details_general_margin"
+                android:layout_marginStart="@dimen/details_general_margin"
+                android:layout_marginTop="@dimen/details_top_margin"
+                android:text="@{movie.releaseDate}"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/details_img"
+                app:layout_constraintTop_toBottomOf="@+id/details_date_header_tv" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/details_general_margin"
-                    android:layout_marginStart="@dimen/details_general_margin"
-                    android:layout_toEndOf="@id/details_img"
-                    android:layout_toRightOf="@+id/details_img"
-                    android:orientation="vertical">
+            <ImageView
+                android:id="@+id/details_rating_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/details_general_margin"
+                android:layout_marginRight="@dimen/details_general_margin"
+                android:contentDescription="@string/cd_rating"
+                app:layout_constraintBottom_toBottomOf="@+id/details_rating_tv"
+                app:layout_constraintEnd_toStartOf="@+id/details_rating_tv"
+                app:layout_constraintTop_toTopOf="@+id/details_rating_tv"
+                app:srcCompat="@drawable/ic_star" />
 
-                    <TextView
-                        android:id="@+id/details_date_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/details_general_margin"
-                        android:text="@{movie.releaseDate}"
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/details_rating_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/details_general_margin"
+                android:layout_marginRight="@dimen/details_general_margin"
+                android:text="@{@string/vote_average(movie.voteAverage)}"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="@+id/details_date_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/details_date_header_tv" />
 
-                    <TextView
-                        android:id="@+id/details_rating_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/details_top_margin"
-                        android:text="@{@string/vote_average(movie.voteAverage)}"
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+            <TextView
+                android:id="@+id/details_overview_header_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="@dimen/details_general_margin"
+                android:layout_marginStart="@dimen/details_general_margin"
+                android:layout_marginTop="@dimen/details_general_margin"
+                android:text="@string/overview"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/details_img"
+                app:layout_constraintTop_toBottomOf="@+id/details_rating_tv" />
 
-                    <TextView
-                        android:id="@+id/details_overview_tv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/details_general_margin"
-                        android:layout_marginRight="@dimen/details_general_margin"
-                        android:layout_marginTop="@dimen/details_top_margin"
-                        android:text="@{movie.overview}"
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
-                </LinearLayout>
-
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/details_overview_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/details_general_margin"
+                android:layout_marginStart="@dimen/details_general_margin"
+                android:layout_marginTop="@dimen/details_top_margin"
+                android:text="@{movie.overview}"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/details_img"
+                app:layout_constraintTop_toBottomOf="@+id/details_overview_header_tv" />
 
         </android.support.constraint.ConstraintLayout>
 
